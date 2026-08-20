@@ -3,7 +3,7 @@
   <img src="Ankora%20G%C3%BCncel%20Logo.jpg" alt="Ankora OS Logo" width="220" style="border-radius: 50%;">
   
   <h1>Ankora OS</h1>
-  <p><b>Eski donanımları canlandıran, yazılımcı ve oyuncu dostu, yüksek performanslı Linux dağıtımı.</b></p>
+  <p><b>Kullanıma Hazır Şekilde Giydirilmiş Debian Dağıtımı</b></p>
 
   ![Sürüm](https://img.shields.io/badge/Sürüm-1.0_(Zümrüt)-0ea5e9?style=for-the-badge)
   ![Taban](https://img.shields.io/badge/Taban-Debian_12-A81D33?style=for-the-badge&logo=debian)
@@ -20,7 +20,7 @@ Amacımız, donanımı ne kadar eski olursa olsun her kullanıcıya akıcı bir 
 
 ---
 
-## 🎯 Kime Hitap Ediyor?
+##  Kime Hitap Ediyor?
 
 ### Yeni Başlayanlar İçin: "Kur ve Kullan"
 Linux dünyasına yeni adım atıyorsanız, Ankora OS sizi terminal ekranlarına veya karmaşık ayarlara mahkum etmez.
@@ -54,7 +54,7 @@ Ankora OS, bir iş istasyonu olduğu kadar bir eğlence merkezidir.
 
 ---
 
-## 🚀 Kurulum Rehberi
+##  Kurulum Rehberi
 
 1. **İndirin:** Sağ üst köşedeki **[Releases](#)** bölümünden `Ankora-OS-Zumrut.iso` dosyasının en güncel halini indirin.
 2. **USB'ye Yazdırın:** İndirdiğiniz ISO dosyasını boş bir USB belleğe yazdırmak için [Rufus](https://rufus.ie/tr/) (Windows) veya [BalenaEtcher](https://balena.io/etcher/) kullanın.
