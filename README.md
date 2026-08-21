@@ -70,3 +70,7 @@ Bu proje tamamen açık kaynaklıdır ve topluluğun geri bildirimleriyle büyü
 * 🌍 **Resmi Web Sitesi:** [ankora.xo.je](http://ankora.xo.je) 
 * 🐞 **Hata Bildirimi:** GitHub üzerindeki [Issues](../../issues) sekmesini veya forumdan konu açarak kullanabilirsiniz.
 
+### License & Source Code
+Ankora OS is built on top of **Debian 12 (Bookworm)**. The base system, Linux Kernel, and upstream packages are distributed under the **GPL (GNU General Public License)** or their respective original licenses. You can find the source code for the base Debian packages in the official Debian repositories.
+
+All custom configurations, boot parameters (GRUB/ISOLinux), UI artwork, and build scripts specific to Ankora OS provided in this repository are licensed under the **MIT License**.
