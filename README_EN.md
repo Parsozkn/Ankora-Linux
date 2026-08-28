@@ -6,8 +6,7 @@
 
 > **A Debian-based Linux distribution tailored for gamers and developers, ready out-of-the-box.**
 
-[🇹🇷 Türkçe README için tıklayın (Click here for Turkish)](README_TR.md) *(Eğer Türkçe README ayrı bir dosyadaysa bu linki bırakabilirsin)*
-
+[🇹🇷 Türkçe README için tıklayın (Click here for Turkish)](README.md) 
 ## 📖 About Ankora OS
 Ankora OS is not about reinventing the wheel. It is built on the rock-solid foundation of **Debian 12 (Bookworm)** but eliminates the tedious post-installation setup. Designed for developers and gamers, Ankora OS comes pre-configured with essential performance tweaks, modern command-line tools, and a beautifully customized lightweight XFCE desktop environment. 
 
