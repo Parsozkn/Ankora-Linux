@@ -3,33 +3,6 @@
   <img src="Ankora%20G%C3%BCncel%20Logo.jpg" alt="Ankora OS Logo" width="220" style="border-radius: 50%;">
   
   <h1>Ankora OS</h1>
-  <p><b>Kullanıma Hazır Şekilde Giydirilmiş Debian Dağıtımı</b></p>
-
-  ![Sürüm](https://img.shields.io/badge/Sürüm-1.0_(Zümrüt)-0ea5e9?style=for-the-badge)
-  ![Taban](https://img.shields.io/badge/Taban-Debian_12-A81D33?style=for-the-badge&logo=debian)
-  ![Masaüstü](https://img.shields.io/badge/Masaüstü-XFCE_|_KDE-2284F2?style=for-the-badge&logo=xfce)
-  ![Lisans](https://img.shields.io/badge/Lisans-Açık_Kaynak-success?style=for-the-badge)
-</div>
-
----
-
-## 📌 Ankora OS Nedir?
-Ankora OS, Debian'ın kaya gibi sağlam temelini alıp, modern kullanıcıların ihtiyaç duyduğu hız ve sadelikle yeniden inşa eden bağımsız bir Linux dağıtımıdır. "Bloatware" (sistemi şişiren gereksiz yazılımlar) kavramına karşı sıfır tolerans politikasıyla geliştirilmiştir. 
-
-Amacımız, donanımı ne kadar eski olursa olsun her kullanıcıya akıcı bir deneyim sunarken, profesyonel geliştiricilerin ve oyuncuların ihtiyaç duyduğu altyapıyı "Out-of-the-box" (Kutudan çıktığı gibi) hazır etmektir.
-
----
-
-##  Kime Hitap Ediyor?
-
-### Yeni Başlayanlar İçin: "Kur ve Kullan"
-Linux dünyasına yeni adım atıyorsanız, Ankora OS sizi terminal ekranlarına veya karmaşık ayarlara mahkum etmez.
-* **Tanıdık Arayüz:** Windows kullanıcılarının yabancılık çekmeyeceği, sol altta yer alan akıllı başlat menüsü (Whisker).
-* **Günlük Araçlar Hazır:** Brave Browser ile reklamsız internet, LibreOffice ile belge yönetimi ve VLC/MPV ile tüm medya formatları kurulumla birlikte gelir.
-* **Tek Merkezden Yönetim:** XFCE ve KDE'nin uygulama çöplüğü temizlenmiş, sistemin tek dosya yöneticisi olarak güçlü ve kullanıcı dostu **Dolphin** belirlenmiştir.
-
-### Profesyoneller ve Geliştiriciler İçin: "Saf Performans"
-Sistemin altında yatan mimari, kaynak tüketimini minimize etmek için özel olarak yapılandırıldı.
 * **Akıllı Bellek Yönetimi:** `zram-tools` ile bellek sıkıştırma aktiftir, Swap (Takas) alanı optimizasyonu standart olarak gelir.
 * **Preload Entegrasyonu:** Makine öğrenimi tabanlı `preload` arka planda çalışarak, en sık kullandığınız uygulamaları RAM'de hazır bekletir ve açılış sürelerini dramatik ölçüde düşürür.
 * **Geliştirici Cephaneliği:** `build-essential`, `git`, `python3`, `pip`, `curl` ve `wget` sisteme gömülüdür. VS Code hafifliğindeki **Geany** varsayılan IDE/Editör olarak ayarlanmıştır.
