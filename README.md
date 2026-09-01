@@ -78,8 +78,9 @@ Hem KDE Plasma hem de XFCE masaüstü ortamlarında sistem üzerine aynı görev
 ### 1. ISO İmajını Diske Yazdırma
 Linux ortamında terminal üzerinden `dd` komutunu kullanarak önyüklenebilir USB oluşturabilirsiniz:
 
-```bash
+
 sudo dd if=ankora-2.0-debian-x86_64.iso of=/dev/sdX bs=4M status=progress conv=fsync
+
 
 ## 🌐 Topluluk ve İletişim
 Bu proje tamamen açık kaynaklıdır ve topluluğun geri bildirimleriyle büyümektedir. Karşılaştığınız sorunlar, yeni özellik talepleri veya sadece selam vermek için bize katılın:
