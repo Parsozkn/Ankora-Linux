@@ -2,39 +2,84 @@
 <div align="center">
   <img src="Ankora%20G%C3%BCncel%20Logo.jpg" alt="Ankora OS Logo" width="220" style="border-radius: 50%;">
   
-  <h1>Ankora OS</h1>
-* **Akıllı Bellek Yönetimi:** `zram-tools` ile bellek sıkıştırma aktiftir, Swap (Takas) alanı optimizasyonu standart olarak gelir.
-* **Preload Entegrasyonu:** Makine öğrenimi tabanlı `preload` arka planda çalışarak, en sık kullandığınız uygulamaları RAM'de hazır bekletir ve açılış sürelerini dramatik ölçüde düşürür.
-* **Geliştirici Cephaneliği:** `build-essential`, `git`, `python3`, `pip`, `curl` ve `wget` sisteme gömülüdür. VS Code hafifliğindeki **Geany** varsayılan IDE/Editör olarak ayarlanmıştır.
-* **Global Mimeapps:** Sistemdeki tüm dosya ilişkilendirmeleri (`/etc/xdg/mimeapps.list`) manuel olarak yapılandırılmış, masaüstü ortamları arası çakışmalar engellenmiştir.
+<p align="left">
+  <img src="https://img.shields.io/badge/S%C3%9CR%C3%9CM-2.0_(Z%C3%9CMR%C3%9CT)-0085d1?style=for-the-badge&labelColor=383838" alt="Sürüm">
+  <img src="https://img.shields.io/badge/TABAN-DEBIAN_13_%2F_ARCH-a61c1c?style=for-the-badge&labelColor=383838" alt="Taban">
+  <img src="https://img.shields.io/badge/MASA%C3%9CST%C3%9C-XFCE_%7C_KDE-0085d1?style=for-the-badge&labelColor=383838" alt="Masaüstü">
+  <img src="https://img.shields.io/badge/L%C3%B0SANS-A%C3%87IK_KAYNAK-41a013?style=for-the-badge&labelColor=383838" alt="Lisans">
+</p>
+
+# Ankora Linux (Ankora OS)
+
+Ankora OS; düşük donanım kaynaklarına sahip sistemlerde yüksek tepkisellik ve kararılık sunmak üzere tasarlanmış, arka plan yüklerinden arındırılmış Debian ve Arch tabanlı bağımsız bir Linux dağıtımı projesidir. Sistem, doğrudan terminale entegre çalışan çevrimdışı (lokal) bir AI asistanı ve özelleştirilmiş bellek yönetim katmanıyla gelir.
 
 ---
 
-## 🎮 Oyun ve Multimedya
-Ankora OS, bir iş istasyonu olduğu kadar bir eğlence merkezidir.
-* **GameMode:** Oyuna girdiğiniz anda CPU Governor'ı performans moduna çeker, I/O önceliğini oyuna verir ve arka plan süreçlerini dondurur.
-* **Wine ve Flatpak Altyapısı:** Windows uygulamalarını (`.exe`) doğrudan çalıştırmanız için Wine mimarisi sisteme entegredir. Lutris ve Steam gibi platformlar için modern Flatpak mağaza altyapısı tercih edilmiştir.
+## 📌 Ankora OS Nedir?
+
+Ankora OS, genel kullanım dağıtımlarında bulunan gereksiz servis kirliliğini (telemetri, kullanılmayan daemon'lar) engellemek ve donanım limitlerini en verimli şekilde kullanmak amacıyla geliştirilmiştir. Masaüstü ortamında görsel tutarlılık sağlarken arka planda Linux çekirdek parametrelerini (sysctl, zram) düşük gecikmeye göre optimize eder.
+
+Sistemde bulunan yerel AI bileşeni, uzak sunuculara veya API anahtarlarına bağımlı değildir. Makine üzerindeki yerel kaynakları kullanarak doğrudan terminal içinden teknik komut yardımı, hata ayıklama ve sistem analizi sunar.
 
 ---
 
-## 💻 Sistem Gereksinimleri
+## 🛠 Temel Mühendislik Tercihleri ve Mimarisi
 
-| Donanım | Minimum (Günlük Kullanım) | Önerilen (Oyun & Geliştirme) |
+### 1. Kademeli Bellek Yönetimi (ZRAM + SWAP Hiyerarşisi)
+Düşük RAM kapasitesinde Out-Of-Memory (OOM) kilitlenmelerini engellemek için bellek mimarisi hiyerarşik olarak kurgulanmıştır:
+* **ZRAM:** RAM üzerinde sıkıştırılmış blok alanı oluşturarak disk I/O yükünü düşürür ve ilk bellek taşıntılarını karşılar.
+* **Disk SWAP:** ZRAM kapasitesi dolduğunda devreye giren ikincil yedek alandır.
+* **vm.swappiness & vm.vfs_cache_pressure:** Çekirdek parametreleri disk okuma/yazma gecikmesini minimize edecek değerlere çekilmiştir.
+
+### 2. Çevrimdışı Terminal AI Asistanı (`yardimci`)
+Terminalde `yardimci` komutuyla çağrılan bileşen, internet bağlantısı gerektirmeksizin çalışır:
+* Veriler harici sunuculara gönderilmez, tamamen yerel bellek üzerinde işlenir.
+* Shell komutları, paket bağımlılıkları ve sistem konfigürasyon dosyaları için hızlı referans sağlar.
+
+### 3. Çift Masaüstü Kirliliğini Önleme (Unified Desktop Stack)
+Hem KDE Plasma hem de XFCE masaüstü ortamlarında sistem üzerine aynı görevi yapan çift uygulama yüklenmez:
+* **Dosya Yöneticisi:** Her iki ortamda da çakışmaları engellemek için varsayılan olarak **Dolphin** kullanılır.
+* **Görsel Bütünlük:** Simge seti olarak **Fairy Wren** entegre edilmiştir.
+
+### 4. Şişkinlikten Arındırılmış Sistem (Bloat-Free)
+* ISO boyutunu ve sistem açılış süresini olumsuz etkileyen Office suitleri (LibreOffice vb.) imajdan çıkarılmıştır.
+* Kullanıcı ihtiyaç duyduğu paketi depo üzerinden tek komutla kurabilir.
+
+### 5. Dahili Oyun ve Grafik Katmanı
+* **GameMode:** Oyun başlatıldığında CPU valörünü performance moduna çeker.
+* **MangoHud:** Vulkan/OpenGL katmanında FPS, sıcaklık ve RAM kullanım değerlerini önceden yapılandırılmış olarak sunar.
+
+---
+
+## 📊 Sürüm Karşılaştırma Tablosu
+
+| Sürüm Adı | Sistem Tabanı | Yayın Tipi | Odak Noktası | Durum |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ankora AI Debian** | Debian 13 (Trixie) | Sabit / Stable | Yüksek sistem stabilitesi, düşük kaynak kullanımı | **Aktif Sürüm** |
+| **Ankora AI Arch** | Arch Linux | Rolling Release | En güncel paketler, yerel Ankora araçları (`ankora-backup`, `ankora-cleaner`) | **Test Aşamasında** |
+| **Ankora Kurumsal** | Debian LTS | Sabit / LTS | Merkezi yönetim profilleri, sıkılaştırılmış güvenlik (AppArmor) | **Planlama** |
+| **Ankora Geliştirici** | Debian / Arch | Özel Derleme | Hazır derleyici araçları (GCC, Rust, Go, Python) ve Zsh terminal yapısı | **Özel Sürüm** |
+
+---
+
+## 📋 Sistem Gereksinimleri
+
+| Bileşen | Minimum Gereksinim | Önerilen Sistem |
 | :--- | :--- | :--- |
-| **İşlemci** | 64-bit Çift Çekirdekli CPU | Intel Core i3 / AMD Ryzen 3 |
-| **RAM** | 2 GB (ZRAM Destekli) | 4 GB veya Üzeri |
-| **Depolama** | 15 GB Boş Alan | 30 GB SSD |
+| **İşlemci (CPU)** | 64-bit Çift Çekirdek (1.5 GHz) | 64-bit Dört Çekirdek (2.0 GHz+) |
+| **Bellek (RAM)** | 2 GB (ZRAM Aktif) | 4 GB ve üzeri |
+| **Depolama** | 15 GB Boş Disk Alanı | 25 GB SSD Depolama |
+| **Ekran Kartı** | KMS destekli herhangi bir GPU | Vulkan / OpenGL 4.5 destekli GPU |
 
 ---
 
-##  Kurulum Rehberi
+## ⚡ Kurulum ve Kullanım Talimatları
 
-1. **İndirin:** Sağ üst köşedeki **[Releases](#)** bölümünden `Ankora-OS-Zumrut.iso` dosyasının en güncel halini indirin.
-2. **USB'ye Yazdırın:** İndirdiğiniz ISO dosyasını boş bir USB belleğe yazdırmak için [Rufus](https://rufus.ie/tr/) (Windows) veya [BalenaEtcher](https://balena.io/etcher/) kullanın.
-3. **Boot Edin:** Bilgisayarınızı yeniden başlatın, BIOS/Boot menüsüne girerek USB belleğinizi ilk sıraya alın.
-4. **Kurulumu Tamamlayın:** Karşınıza çıkan Calamares grafiksel kurulum sihirbazını takip ederek bölge, klavye ve kullanıcı ayarlarınızı saniyeler içinde tamamlayın.
+### 1. ISO İmajını Diske Yazdırma
+Linux ortamında terminal üzerinden `dd` komutunu kullanarak önyüklenebilir USB oluşturabilirsiniz:
 
----
+```bash
+sudo dd if=ankora-2.0-debian-x86_64.iso of=/dev/sdX bs=4M status=progress conv=fsync
 
 ## 🌐 Topluluk ve İletişim
 Bu proje tamamen açık kaynaklıdır ve topluluğun geri bildirimleriyle büyümektedir. Karşılaştığınız sorunlar, yeni özellik talepleri veya sadece selam vermek için bize katılın:
