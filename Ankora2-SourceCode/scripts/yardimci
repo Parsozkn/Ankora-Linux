@@ -1,0 +1,5 @@
+#!/bin/bash
+read -p "Ankora AI Asistanına Sorun: " SORU
+if [ -n "$SORU" ]; then
+    ollama run qwen2.5:0.5b "System: Sen Ankora Linux masaüstü yardımcı asistanısın. Sadece Türkçe yanıt ver, komut çalıştırma. Soru: $SORU"
+fi
