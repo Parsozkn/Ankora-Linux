@@ -56,7 +56,6 @@ Hem KDE Plasma hem de XFCE masaüstü ortamlarında sistem üzerine aynı görev
 | Sürüm Adı | Sistem Tabanı | Yayın Tipi | Odak Noktası | Durum |
 | :--- | :--- | :--- | :--- | :--- |
 | **Ankora AI Debian** | Debian 13 (Trixie) | Sabit / Stable | Yüksek sistem stabilitesi, düşük kaynak kullanımı | **Aktif Sürüm** |
-| **Ankora AI Arch** | Arch Linux | Rolling Release | En güncel paketler, yerel Ankora araçları (`ankora-backup`, `ankora-cleaner`) | **Test Aşamasında** |
 | **Ankora Kurumsal** | Debian LTS | Sabit / LTS | Merkezi yönetim profilleri, sıkılaştırılmış güvenlik (AppArmor) | **Planlama** |
 | **Ankora Geliştirici** | Debian / Arch | Özel Derleme | Hazır derleyici araçları (GCC, Rust, Go, Python) ve Zsh terminal yapısı | **Özel Sürüm** |
 
@@ -86,7 +85,7 @@ sudo dd if=ankora-2.0-debian-x86_64.iso of=/dev/sdX bs=4M status=progress conv=f
 Bu proje tamamen açık kaynaklıdır ve topluluğun geri bildirimleriyle büyümektedir. Karşılaştığınız sorunlar, yeni özellik talepleri veya sadece selam vermek için bize katılın:
 
 * 💬 **Topluluk Forumu:** [Ankalab Flarum Cloud](https://ankalab.flarum.cloud)
-* 🌍 **Resmi Web Sitesi:** [ankora.xo.je](http://ankora.xo.je) 
+* 🌍 **Resmi Web Sitesi:** [Sitemiz](https://ankora-linux.github.io/#home) 
 * 🐞 **Hata Bildirimi:** GitHub üzerindeki [Issues](../../issues) sekmesini veya forumdan konu açarak kullanabilirsiniz.
 
 ### License & Source Code
